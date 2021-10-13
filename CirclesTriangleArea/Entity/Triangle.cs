@@ -99,5 +99,24 @@ namespace CirclesTriangleArea.Entity
             Math.Max(Math.Max(FSAngle, TFAngle), STAngle) == Math.PI / 2 ? TriangleType.Rectangled :
             TriangleType.AcuteAngled;
 
+        public bool Equals(Triangle other)
+        {
+            if (base.Equals(other))
+            {
+                if (this.SideFirst == other.SideFirst &&
+                    this.SideSecond == other.SideSecond &&
+                    this.SideThird == other.SideThird ||
+                    this.SideFirst == other.SideSecond &&
+                    this.SideSecond == other.SideThird &&
+                    this.SideThird == other.SideFirst ||
+                    this.SideFirst == other.SideThird &&
+                    this.SideSecond == other.SideFirst &&
+                    this.SideThird == other.SideSecond)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

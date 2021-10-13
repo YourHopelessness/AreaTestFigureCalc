@@ -23,5 +23,17 @@ namespace CirclesTriangleArea.Entity
         public Circle(double radius) =>
             Radius = radius > 0 ? radius 
               : throw new ArgumentException("Радиус не может быть меньше 0");
+
+        public bool Equals(Circle other)
+        {
+            if (base.Equals(other))
+            {
+                if (this.Radius == other.Radius)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

@@ -24,5 +24,20 @@ namespace CirclesTriangleArea.Entity
         }
 
         public bool IsSquare() => SideFirst == SideSecond;
+
+        public bool Equals(Rectangle other)
+        {
+            if (base.Equals(other))
+            {
+                if (this.SideFirst == other.SideFirst &&
+                    this.SideSecond == other.SideSecond ||
+                    this.SideFirst == other.SideSecond &&
+                    this.SideSecond == other.SideFirst)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
