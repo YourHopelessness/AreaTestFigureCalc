@@ -103,15 +103,11 @@ namespace CirclesTriangleArea.Entity
         {
             if (base.Equals(other))
             {
-                if (this.SideFirst == other.SideFirst &&
-                    this.SideSecond == other.SideSecond &&
-                    this.SideThird == other.SideThird ||
-                    this.SideFirst == other.SideSecond &&
-                    this.SideSecond == other.SideThird &&
-                    this.SideThird == other.SideFirst ||
-                    this.SideFirst == other.SideThird &&
-                    this.SideSecond == other.SideFirst &&
-                    this.SideThird == other.SideSecond)
+                var sidesThis = new List<double>()
+                    { this.SideFirst, this.SideSecond, this.SideThird };
+                var sidesOther = new List<double>()
+                    { other.SideFirst, other.SideSecond, other.SideThird };
+                if (sidesThis.All(sidesOther.Contains))
                 {
                     return true;
                 }
